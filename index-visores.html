@@ -51,10 +51,82 @@
         <div class="row">
           <div class="col-md-12">
             <div class="input-group text-center">
-              <label for="arrive"><br></label>
-              <input type="text" id="arrive">
-              <button type="button" onclick="dateData()" class="btn btn-primary
-                btn-lg btn-play-pause btn-play">BUSCAR</button>
+              <select id="año" name="año">
+                <option value="2023">2023</option>
+              </select>
+              <select onchange="getVideo()" id="mes" name="mes">
+                <option value="01">Enero</option>
+                <option value="02">Febrero</option>
+                <option value="03">Marzo</option>
+                <option value="04">Abril</option>
+                <option value="05">Mayo</option>
+                <option value="06">Junio</option>
+                <option value="07">Julio</option>
+                <option value="08">Agosto</option>
+                <option value="09">Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+              </select>
+              <select onchange="getVideo()" id="dia" name="dia">
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+              </select>
+              <select onchange="getVideo()" id="hora" name="hora">
+                <option value="00">12:00AM</option>
+                <option value="01">01:00AM</option>
+                <option value="02">02:00AM</option>
+                <option value="03">03:00AM</option>
+                <option value="04">04:00AM</option>
+                <option value="05">05:00AM</option>
+                <option value="06">06:00AM</option>
+                <option value="07">07:00AM</option>
+                <option value="08">08:00AM</option>
+                <option value="09">09:00AM</option>
+                <option value="10">10:00AM</option>
+                <option value="11">11:00AM</option>
+                <option value="12">12:00PM</option>
+                <option value="13">01:00PM</option>
+                <option value="14">02:00PM</option>
+                <option value="15">03:00PM</option>
+                <option value="16">04:00PM</option>
+                <option value="17">05:00PM</option>
+                <option value="18">06:00PM</option>
+                <option value="19">07:00PM</option>
+                <option value="20">08:00PM</option>
+                <option value="21">09:00PM</option>
+                <option value="22">10:00PM</option>
+                <option value="23">11:00PM</option>
+              </select>
             </div>
           </div>
           <br>
@@ -95,12 +167,12 @@
           <div class="container-fluid py-4">
             <div class="row">
               <div class="col-md-12 text-center pt-4">
-                <p class="h2 text-uppercase text-white">Rating</p>
+                <!-- <p class="h2 text-uppercase text-white">Rating</p> -->
               </div>
               <hr>
               <div class="col-md-4">
-                <div class="mx-auto py-3">
-                  <img src="image/raiting.png" class="img-fluid">
+                <div class="mx-auto py-3" style="max-width: 180px; height:150px;">
+                  <p class="h3 text-uppercase text-white text-center">TELEVISA LOCAL 4.1 XEFB</p>
                 </div>
                 <div class="ratio ratio-16x9">
                   <video id="televisa" controls="">
@@ -108,38 +180,27 @@
                       type="video/mp4">
                   </video>
                 </div>
-                <div class="mx-auto py-3" style="max-width: 180px;">
-                  <img src="image/televisa-monterrey-blanco.png"
-                    class="img-fluid">
-                </div>
               </div>
               <div class="col-md-4">
-                <div class="mx-auto py-3">
-                  <img src="image/raiting.png" class="img-fluid">
+                <div class="mx-auto py-3" style="max-width: 180px; height:150px;">
+                  <p class="h3 text-uppercase text-white text-center">AZTECA LOCAL 7.1 XHFN</p>
                 </div>
                 <div class="ratio ratio-16x9">
                   <video id="azteca" controls="">
                     <source src=""
                       type="video/mp4">
                   </video>
-                </div>
-                <div class="mx-auto py-3" style="max-width: 180px;">
-                  <img src="image/logo-azteca-noreste-blanco-500x500.png"
-                    class="img-fluid">
-                </div>
+                </div>  
               </div>
               <div class="col-md-4">
-                <div class="mx-auto py-3">
-                  <img src="image/raiting.png" class="img-fluid">
+                <div class="mx-auto py-3" style="max-width: 180px; height:150px;">
+                  <p class="h3 text-uppercase text-white text-center">MULTIMEDIOS LOCAL 6.1 XHAW</p>
                 </div>
                 <div class="ratio ratio-16x9">
                   <video id="multimedios" controls="">
                     <source src=""
                       type="video/mp4">
                   </video>
-                </div>
-                <div class="mx-auto py-3" style="max-width: 180px;">
-                  <img src="image/canal-6-blanco.png" class="img-fluid">
                 </div>
               </div>
             </div>
@@ -163,38 +224,28 @@
             multimedios.pause();
           }
 
-          flatpickr("#arrive", {
-            altInput: true,
-            enableTime: true,
-            dateFormat: "d-m-Y H",
-            locale: "es"
-          });
-
-          function dateData() {
+          function getVideo() { 
             // get date from fp
-            const fp = document.getElementById("arrive").value;
-
-            // convert date & time
-            var date = fp.match(/(\d{1,2})\-(\d{1,2})\-(\d{4})/);
-            var time = fp.slice(-2) + '0000';
+            const año = document.getElementById("año").value;
+            const mes = document.getElementById("mes").value;
+            const dia = document.getElementById("dia").value;
+            const hora = document.getElementById("hora").value + '0000';
+            console.log(año + " " + mes + " " + dia + " " + hora)
 
             var televisa = document.getElementById('televisa');
             var azteca = document.getElementById('azteca');
             var multimedios = document.getElementById('multimedios');
 
             // set videos
-            televisa.setAttribute('src', 'media/televisa/'+ date[3] + '/' + date[2] + '/' + date[1] + '/'+ time + '.MP4');
+            televisa.setAttribute('src', 'media/televisa/'+ año + '/' + mes + '/' + dia + '/'+ hora + '.MP4');
             televisa.setAttribute('type', 'video/mp4');
 
-            azteca.setAttribute('src', 'media/tva/'+ date[3] + '/' + date[2] + '/' + date[1] + '/'+ time + '.MP4');
+            azteca.setAttribute('src', 'media/tva/'+ año + '/' + mes + '/' + dia + '/'+ hora + '.MP4');
             azteca.setAttribute('type', 'video/mp4');
 
-            multimedios.setAttribute('src', 'media/mm/'+ date[3] + '/' + date[2] + '/' + date[1] + '/'+ time + '.MP4');
+            multimedios.setAttribute('src', 'media/mm/'+ año + '/' + mes + '/' + dia + '/'+ hora + '.MP4');
             multimedios.setAttribute('type', 'video/mp4');
           }
-          // remove minutes
-          const fp = document.getElementById("arrive")._flatpickr;
-          fp.minuteElement.style.display = "none";
         </script>
       </body>
     </html>
