@@ -1,6 +1,6 @@
 <?php
 require("config/session.php");
-// require("config/helper.php");
+require("config/helper.php");
 require("config/database.php");
 require("config/constant.php");
 confirm_logged_in();
