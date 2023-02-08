@@ -240,7 +240,6 @@ function pauseVid() {
 
 function getSpeed() {
   const velocidad = document.getElementById("velocidad").value;
-  console.log(velocidad);
   azteca.playbackRate = velocidad;
   televisa.playbackRate = velocidad;
   multimedios.playbackRate = velocidad;
@@ -250,11 +249,11 @@ function muteVid() {
   if (azteca.muted === false) {    
     azteca.muted = true;
     televisa.muted = true;
-    televisa.muted = true;
+    multimedios.muted = true;
   } else {
     azteca.muted = false;
     televisa.muted = false;
-    televisa.muted = false;
+    multimedios.muted = false;
   };  
 }
 
