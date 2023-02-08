@@ -247,7 +247,7 @@ function getSpeed() {
 }
 
 function muteVid() {
-  if (video.muted === false) {    
+  if (azteca.muted === false) {    
     azteca.muted = true;
     televisa.muted = true;
     televisa.muted = true;
