@@ -144,30 +144,11 @@ confirm_logged_in();
               <option value="31">31</option>
             </select>
             <select onchange="getVideo()" id="hora" name="hora">
-              <option value="00">12:00AM</option>
-              <option value="01">01:00AM</option>
-              <option value="02">02:00AM</option>
-              <option value="03">03:00AM</option>
-              <option value="04">04:00AM</option>
               <option value="05">05:00AM</option>
               <option value="06">06:00AM</option>
               <option value="07">07:00AM</option>
               <option value="08">08:00AM</option>
               <option value="09">09:00AM</option>
-              <option value="10">10:00AM</option>
-              <option value="11">11:00AM</option>
-              <option value="12">12:00PM</option>
-              <option value="13">01:00PM</option>
-              <option value="14">02:00PM</option>
-              <option value="15">03:00PM</option>
-              <option value="16">04:00PM</option>
-              <option value="17">05:00PM</option>
-              <option value="18">06:00PM</option>
-              <option value="19">07:00PM</option>
-              <option value="20">08:00PM</option>
-              <option value="21">09:00PM</option>
-              <option value="22">10:00PM</option>
-              <option value="23">11:00PM</option>
             </select>
             <select onchange="getSpeed()" id="velocidad" name="velocidad">
               <option value="1.0">1X</option>
