@@ -120,11 +120,9 @@ confirm_logged_in();
             </select>
             <select onchange="getSpeed()" id="velocidad" name="velocidad">
               <option value="1.0">1X</option>
-              <option value="1.5">1.5X</option>
-              <option value="2.0">2X</option>
-              <option value="4.0">4X</option>
-              <option value="6.0">6X</option>
-              <option value="8.0">8X</option>
+              <option value="5.0">5X</option>
+              <option value="10.0">10X</option>
+              <option value="15.0">15X</option>
             </select>
           </div>
         </div>
