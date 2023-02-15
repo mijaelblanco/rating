@@ -3,7 +3,8 @@
 
 .bg-azteca { background-color: #332055 !important; }
 .btn-yellow-azteca { background-color: #ffd61c !important; }
-.btn-yellow-azteca:hover, .btn-yellow-azteca:focus, .btn-yellow-azteca:active, { background-color: #ffd61c !important; }
+.btn-yellow-azteca:hover, .btn-yellow-azteca:focus, .btn-yellow-azteca:active { background-color: #ffd61c !important; }
+
 
 /*
 .login-page {

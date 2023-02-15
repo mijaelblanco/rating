@@ -160,8 +160,13 @@ confirm_logged_in();
               </svg>
             </i>
             Mute</button>
-
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <input type="range" step="any" id="seekbar" onchange="ChangeTheTime()">
+        <span id="lblTime"></span>
       </div>
 
     </div>
@@ -172,6 +177,7 @@ confirm_logged_in();
 var azteca = document.getElementById("azteca");
 var televisa = document.getElementById("televisa");
 var multimedios = document.getElementById("multimedios");
+var seekbar = document.getElementById('seekbar');
 
 function playVid() {
   azteca.play();
@@ -204,13 +210,47 @@ function muteVid() {
   };  
 }
 
+window.onload = function () {
+  azteca.addEventListener('timeupdate', UpdateTheTime, false);
+  televisa.addEventListener('timeupdate', UpdateTheTime, false);
+  multimedios.addEventListener('timeupdate', UpdateTheTime, false);
+  azteca.addEventListener('durationchange', SetSeekBar, false);
+  televisa.addEventListener('durationchange', SetSeekBar, false);
+  multimedios.addEventListener('durationchange', SetSeekBar, false);
+}
+
+function SetSeekBar() {
+  seekbar.min = 0;
+  seekbar.max = azteca.duration;
+}
+
+function ChangeTheTime() {
+  azteca.currentTime = seekbar.value;
+  televisa.currentTime = seekbar.value;
+  multimedios.currentTime = seekbar.value;
+}
+
+function UpdateTheTime() {
+  var sec = azteca.currentTime;
+  var h = Math.floor(sec / 3600);
+  sec = sec % 3600;
+  var min = Math.floor(sec / 60);
+  sec = Math.floor(sec % 60);
+  if (sec.toString().length < 2) sec = "0" + sec;
+  if (min.toString().length < 2) min = "0" + min;
+  document.getElementById("lblTime").style.color = "white";
+  document.getElementById('lblTime').innerHTML = h + ":" + min + ":" + sec;
+  seekbar.min = azteca.startTime;
+  seekbar.max = azteca.duration;
+  seekbar.value = azteca.currentTime;
+}
+
 function getVideo() {
   // get date from fp
   const año = document.getElementById("año").value;
   const mes = document.getElementById("mes").value;
   const dia = document.getElementById("dia").value;
   const hora = document.getElementById("hora").value + '0000';
-  console.log(año + " " + mes + " " + dia + " " + hora)
 
   var televisa = document.getElementById('televisa');
   var azteca = document.getElementById('azteca');
@@ -218,12 +258,15 @@ function getVideo() {
 
   // set videos
   televisa.setAttribute('src', 'media/televisa/' + año + '/' + mes + '/' + dia + '/' + hora + '.mp4');
+  // televisa.setAttribute('src', 'video.mp4');
   televisa.setAttribute('type', 'video/mp4');
 
   azteca.setAttribute('src', 'media/tva/' + año + '/' + mes + '/' + dia + '/' + hora + '.mp4');
+  // azteca.setAttribute('src', 'video.mp4');
   azteca.setAttribute('type', 'video/mp4');
 
   multimedios.setAttribute('src', 'media/mm/' + año + '/' + mes + '/' + dia + '/' + hora + '.mp4');
+  // multimedios.setAttribute('src', 'video.mp4');
   multimedios.setAttribute('type', 'video/mp4');
 }
 </script>
