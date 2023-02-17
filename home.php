@@ -220,6 +220,7 @@ window.onload = function () {
 function SetSeekBar() {
   seekbar.min = 0;
   seekbar.max = azteca.duration;
+  seekbar.value = 0;
 }
 
 function ChangeTheTime() {
@@ -240,7 +241,7 @@ function UpdateTheTime() {
   document.getElementById('lblTime').innerHTML = h + ":" + min + ":" + sec;
   seekbar.min = azteca.startTime;
   seekbar.max = azteca.duration;
-  seekbar.value = azteca.currentTime;
+  // seekbar.value = azteca.currentTime;
 }
 
 function getVideo() {
