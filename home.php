@@ -91,8 +91,6 @@ confirm_logged_in();
     <br>
     <span id="lblTime"></span>
   </div>
-  <br>
-  <hr>
   <!-- BOTONES -->
   <section>
     <div class="container pt-5 d-flex">
@@ -211,12 +209,7 @@ function muteVid() {
 }
 
 window.onload = function () {
-  azteca.addEventListener('timeupdate', UpdateTheTime, false);
-  televisa.addEventListener('timeupdate', UpdateTheTime, false);
-  multimedios.addEventListener('timeupdate', UpdateTheTime, false);
-  azteca.addEventListener('durationchange', SetSeekBar, false);
-  televisa.addEventListener('durationchange', SetSeekBar, false);
-  multimedios.addEventListener('durationchange', SetSeekBar, false);
+  UpdateTheTime();
 }
 
 function SetSeekBar() {
@@ -239,7 +232,7 @@ function UpdateTheTime() {
   if (sec.toString().length < 2) sec = "0" + sec;
   if (min.toString().length < 2) min = "0" + min;
   document.getElementById("lblTime").style.color = "white";
-  document.getElementById('lblTime').innerHTML = h + ":" + min + ":" + sec;
+  document.getElementById('lblTime').innerHTML = '';
   seekbar.min = azteca.startTime;
   seekbar.max = azteca.duration;
   seekbar.value = azteca.currentTime;
