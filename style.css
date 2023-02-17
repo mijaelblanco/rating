@@ -15,6 +15,15 @@
 
 .btn-play-pause svg path { fill: #ffffff; }
 
+.inputLbl {
+  text-align: center;
+}
+
+input[type="range"] {
+  display: inline-block;
+}
+
+
 /*
 .login-page {
   width: 360px;

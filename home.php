@@ -86,6 +86,12 @@ confirm_logged_in();
       </div>
     </div>
   </section>
+  <div class="col-md-12 text-center pt-4">
+    <input type="range" class="form-range" step="any" id="seekbar" style="width:700px; text-align: center;" onchange="ChangeTheTime()">
+    <br>
+    <span id="lblTime"></span>
+  </div>
+  <br>
   <hr>
   <!-- BOTONES -->
   <section>
@@ -130,7 +136,6 @@ confirm_logged_in();
         </div>
         <br>
         <br>
-        <br>
         <div class="col-md-12">
           <button class="btn btn-primary btn-lg btn-play-pause btn-play" onclick="playVid()" type="button">
             <i class="pe-2">
@@ -163,14 +168,7 @@ confirm_logged_in();
             </i>
             Mute</button>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <input type="range" step="any" id="seekbar" onchange="ChangeTheTime()">
-        <span id="lblTime"></span>
       </div>
-
     </div>
 
   </section>
