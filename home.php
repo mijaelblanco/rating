@@ -209,7 +209,12 @@ function muteVid() {
 }
 
 window.onload = function () {
-  UpdateTheTime();
+  azteca.addEventListener('timeupdate', UpdateTheTime, false);
+  televisa.addEventListener('timeupdate', UpdateTheTime, false);
+  multimedios.addEventListener('timeupdate', UpdateTheTime, false);
+  azteca.addEventListener('durationchange', SetSeekBar, false);
+  televisa.addEventListener('durationchange', SetSeekBar, false);
+  multimedios.addEventListener('durationchange', SetSeekBar, false);
 }
 
 function SetSeekBar() {
@@ -232,7 +237,7 @@ function UpdateTheTime() {
   if (sec.toString().length < 2) sec = "0" + sec;
   if (min.toString().length < 2) min = "0" + min;
   document.getElementById("lblTime").style.color = "white";
-  document.getElementById('lblTime').innerHTML = '';
+  document.getElementById('lblTime').innerHTML = h + ":" + min + ":" + sec;
   seekbar.min = azteca.startTime;
   seekbar.max = azteca.duration;
   seekbar.value = azteca.currentTime;
