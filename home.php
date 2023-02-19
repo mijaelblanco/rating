@@ -114,7 +114,8 @@ confirm_logged_in();
               <option value="13">13</option>
               <option value="14">14</option>
               <option value="15">15</option>
-              <option selected value="16">16</option>
+              <option value="16">16</option>
+              <option selected value="17">17</option>
             </select>
             <select onchange="getVideo()" id="hora" name="hora">
               <option selected value="horario">HORARIO</option>
