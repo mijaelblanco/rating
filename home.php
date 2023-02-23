@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Day  
   on('#seekbar', 'input', () => {
-    seekbar.min = 0;
+    seekbar.value = 0;
     seekbar.max = 3600;
     var seekbar_value = seekbar.value.split('.')[0]
     players_multiple[0].currentTime = Number(seekbar_value);
