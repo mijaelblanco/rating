@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'video',
       sources: [{
         // src: hour,
-        src: 'media/televisa/' + año + '/' + mes + '/' + dia + '/' + hora + '.mp4',
+        src: 'media/televisa/' + year + '/' + month + '/' + day + '/' + hourF + '.mp4',
         type: 'video/mp4',
       }, ],
       previewThumbnails: {
@@ -340,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[1].source = {
       type: 'video',
       sources: [{
-        src: 'media/tva/' + año + '/' + mes + '/' + dia + '/' + hora + '.mp4',
+        src: 'media/tva/' + año + '/' + month + '/' + day + '/' + hourF + '.mp4',
         // src: hour,
         type: 'video/mp4',
       }, ],
@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[2].source = {
       type: 'video',
       sources: [{
-        src: 'media/mm/' + año + '/' + mes + '/' + dia + '/' + hora + '.mp4',
+        src: 'media/mm/' + month + '/' + mes + '/' + day + '/' + hourF + '.mp4',
         // src: hour,
         type: 'video/mp4',
       }, ],
