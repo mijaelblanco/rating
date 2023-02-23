@@ -252,9 +252,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Day  
   on('#day', 'change', () => {
+    var year = document.getElementById("year").value;
     var month = document.getElementById("month").value;
     var day = document.getElementById("day").value;
     var hour = document.getElementById("hour").value;
+    var hour = hour + '0000.mp4';
+    var hourSpriteF = hour + '0000';
+    var hourSprite = hour + '0000.vtt';
+
+    document.getElementById("lblTime").style.color = "white";
+    document.getElementById('lblTime').innerHTML = '00:00:00';
+
+    players_multiple[0].source = {
+      type: 'video',
+      sources: [{
+        src: hour,
+        // src: 'media/televisa/' + year + '/' + month + '/' + day + '/' + hour,
+        type: 'video/mp4',
+      }, ],
+      previewThumbnails: {
+        enabled: true,
+        src: 'thumbs/televisa/' + year + '/' + month + '/' + day + '/' + hourSpriteF + '/' + hourSprite,
+        // src: 'sprite.vtt',
+      },
+    };
+
+    players_multiple[1].source = {
+      type: 'video',
+      sources: [{
+        // src: 'media/tva/' + year + '/' + month + '/' + day + '/' + hour,
+        src: hour,
+        type: 'video/mp4',
+      }, ],
+      previewThumbnails: {
+        enabled: true,
+        src: 'thumbs/tva/' + year + '/' + month + '/' + day + '/' + hourSpriteF + '/' + hourSprite,
+        // src: 'sprite.vtt',
+      },
+    };
+
+    players_multiple[2].source = {
+      type: 'video',
+      sources: [{
+        // src: 'media/mm/' + year + '/' + month + '/' + day + '/' + hour,
+        src: hour,
+        type: 'video/mp4',
+      }, ],
+      previewThumbnails: {
+        enabled: true,
+        src: 'thumbs/mm/' + year + '/' + month + '/' + day + '/' + hourSpriteF + '/' + hourSprite,
+        // src: 'sprite.vtt',
+      },
+    };
   });
 
   // Hour  
@@ -273,8 +322,8 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[0].source = {
       type: 'video',
       sources: [{
-        // src: hour,
-        src: 'media/televisa/' + year + '/' + month + '/' + day + '/' + hour,
+        src: hour,
+        // src: 'media/televisa/' + year + '/' + month + '/' + day + '/' + hour,
         type: 'video/mp4',
       }, ],
       previewThumbnails: {
@@ -287,8 +336,8 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[1].source = {
       type: 'video',
       sources: [{
-        src: 'media/tva/' + year + '/' + month + '/' + day + '/' + hour,
-        // src: hour,
+        // src: 'media/tva/' + year + '/' + month + '/' + day + '/' + hour,
+        src: hour,
         type: 'video/mp4',
       }, ],
       previewThumbnails: {
@@ -301,8 +350,8 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[2].source = {
       type: 'video',
       sources: [{
-        src: 'media/mm/' + year + '/' + month + '/' + day + '/' + hour,
-        // src: hour,
+        // src: 'media/mm/' + year + '/' + month + '/' + day + '/' + hour,
+        src: hour,
         type: 'video/mp4',
       }, ],
       previewThumbnails: {
