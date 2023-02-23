@@ -121,7 +121,8 @@ confirm_logged_in();
               <option value="16">16</option>
               <option value="17">17</option>
               <option value="20">20</option>
-              <option selected value="21">21</option>
+              <option value="21">21</option>
+              <option selected value="22">22</option>
             </select>
             <select id="hour" name="hora">
               <option selected value="horario">HORARIO</option>
