@@ -318,8 +318,6 @@ document.addEventListener('DOMContentLoaded', () => {
     var hourF = hour + '0000';
     var hourSprite = hourF + '.vtt';
 
-    console.log(hourSprite)
-
     document.getElementById("lblTime").style.color = "white";
     document.getElementById('lblTime').innerHTML = '00:00:00';
 
@@ -368,6 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Day  
   on('#seekbar', 'input', () => {
+    seekbar.min = 0;
     seekbar.max = 3600;
     var seekbar_value = seekbar.value.split('.')[0]
     players_multiple[0].currentTime = Number(seekbar_value);
