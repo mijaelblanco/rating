@@ -314,8 +314,8 @@ document.addEventListener('DOMContentLoaded', () => {
     var hour = document.getElementById("hour").value;
     var hour = hour + '0000.mp4';
     var hourF = hour + '0000';
-    var hourSpriteF = hourF + '0000';
-    var hourSprite = hourF + '0000.vtt';
+    var hourSpriteF = hourF;
+    var hourSprite = hourF + '.vtt';
 
     document.getElementById("lblTime").style.color = "white";
     document.getElementById('lblTime').innerHTML = '00:00:00';
