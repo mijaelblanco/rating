@@ -1,16 +1,16 @@
 <?php
 // rsync -av root@157.245.90.18:/mnt/volume_nyc1_01/media_upload/mm/2023/02/22/ /Users/mijael/Documents/Development/rating/videos/mm/02/22/
-// ffmpeg -i /Users/mijael/Documents/Development/rating/videos/tva/02/22/050000.mp4 -r 1 -s 178x100 -f image2 /Users/mijael/Documents/Development/rating/thumbs/tva/02/22/050000/thumb-%d.jpg
+// ffmpeg -i /Users/mijael/Documents/Development/rating/videos/tva/02/22/080000.mp4 -r 1 -s 178x100 -f image2 /Users/mijael/Documents/Development/rating/thumbs/tva/02/22/080000/thumb-%d.jpg
 
-$dirToScan      =   'thumbs/tva/02/22/050000/';
+$dirToScan      =   'thumbs/tva/02/22/080000/';
 $filePrefix     =   'thumb-';
 $fileSuffix     =   '.jpg';
 $thumbWidth     =   178;
 $thumbHeight    =   100;
 $imageFiles     =   array();
-$spriteFile     =   'thumbs/tva/02/22/050000/050000.png';
+$spriteFile     =   '080000.png';
 $imageLine      =   20;
-$vttFile        =   'thumbs/tva/02/22/050000/050000.vtt';
+$vttFile        =   'thumbs/tva/02/22/080000/080000.vtt';
 $dst_x          =   0;
 $dst_y          =   0;
 
