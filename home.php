@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[1].source = {
       type: 'video',
       sources: [{
-        src: 'media/tva/' + year + '/' + month + '/' + day + '/' + hour,
+        src: 'https://azteca-visor.nyc3.cdn.digitaloceanspaces.com/tva/20230222050000.mp4',
         // src: hour,
         type: 'video/mp4',
       }, ],
