@@ -32,6 +32,10 @@ confirm_logged_in();
 
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/cloudinary-video-player/dist/cld-video-player.light.min.css" />
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.3/plyr.css" />
+  <script src="https://cdn.plyr.io/3.7.3/plyr.js"></script>
+
 </head>
 
 <body class="bg-azteca-azul">
@@ -57,9 +61,9 @@ confirm_logged_in();
           <div class="mx-auto py-3" style="max-width: 180px; height:100px;">
             <p class="h3 text-uppercase text-white text-center">TELEVISA LOCAL 4.1</p>
           </div>
-          <div class="ratio ratio-16x9">
-            <video id="televisa" controls="">
-              <source src="" type="video/mp4">
+          <div style='width:500px;'>
+            <video preload="metadata" id="televisa" class="js-player" playsinline controls crossorigin="anonymous">
+              <source src="" type="video/mp4" />
             </video>
           </div>
         </div>
@@ -67,9 +71,9 @@ confirm_logged_in();
           <div class="mx-auto py-3" style="max-width: 180px; height:100px;">
             <p class="h3 text-uppercase text-white text-center">AZTECA LOCAL 7.1</p>
           </div>
-          <div class="ratio ratio-16x9">
-            <video id="azteca" controls="">
-              <source src="" type="video/mp4">
+          <div style='width:500px;'>
+            <video preload="metadata" id="televisa" class="js-player" playsinline controls crossorigin="anonymous">
+              <source src="" type="video/mp4" />
             </video>
           </div>
         </div>
@@ -77,9 +81,9 @@ confirm_logged_in();
           <div class="mx-auto py-3" style="max-width: 180px; height:100px;">
             <p class="h3 text-uppercase text-white text-center">MULTIMEDIOS LOCAL 6.1</p>
           </div>
-          <div class="ratio ratio-16x9">
-            <video id="multimedios" controls="">
-              <source src="" type="video/mp4">
+          <div style='width:500px;'>
+            <video preload="metadata" id="televisa" class="js-player" playsinline controls crossorigin="anonymous">
+              <source src="" type="video/mp4" />
             </video>
           </div>
         </div>
@@ -87,7 +91,7 @@ confirm_logged_in();
     </div>
   </section>
   <div class="col-md-12 text-center pt-4">
-    <input type="range" class="form-range" step="any" id="seekbar" style="width:700px; text-align: center;" onchange="ChangeTheTime()">
+    <input type="range" class="form-range" step="any" value="0" id="seekbar" style="width:700px; text-align: center;">
     <br>
     <span id="lblTime"></span>
   </div>
@@ -97,13 +101,13 @@ confirm_logged_in();
       <div class="row">
         <div class="col-md-12">
           <div class="input-group text-center">
-            <select id="año" name="año">
+            <select id="year" name="año">
               <option value="2023">2023</option>
             </select>
-            <select onchange="getVideo()" id="mes" name="mes">
+            <select id="month" id="mes" name="mes">
               <option selected value="02">Febrero</option>
             </select>
-            <select onchange="getVideo()" id="dia" name="dia">
+            <select id="day" name="dia">
               <option value="02">02</option>
               <option value="03">03</option>
               <option value="06">06</option>
@@ -115,9 +119,11 @@ confirm_logged_in();
               <option value="14">14</option>
               <option value="15">15</option>
               <option value="16">16</option>
-              <option selected value="17">17</option>
+              <option value="17">17</option>
+              <option value="20">20</option>
+              <option selected value="21">21</option>
             </select>
-            <select onchange="getVideo()" id="hora" name="hora">
+            <select id="hour" name="hora">
               <option selected value="horario">HORARIO</option>
               <option value="05">05:00AM</option>
               <option value="06">06:00AM</option>
@@ -125,18 +131,18 @@ confirm_logged_in();
               <option value="08">08:00AM</option>
               <option value="09">09:00AM</option>
             </select>
-            <select onchange="getSpeed()" id="velocidad" name="velocidad">
-              <option value="1.0">1X</option>
-              <option value="5.0">5X</option>
-              <option value="10.0">10X</option>
-              <option value="15.0">15X</option>
+            <select id="velocidad" name="velocidad">
+              <option value="1">1X</option>
+              <option value="5">5X</option>
+              <option value="10">10X</option>
+              <option value="15">15X</option>
             </select>
           </div>
         </div>
         <br>
         <br>
         <div class="col-md-12">
-          <button class="btn btn-primary btn-lg btn-play-pause btn-play" onclick="playVid()" type="button">
+          <button id="play" class="btn btn-primary btn-lg btn-play-pause btn-play" type="button">
             <i class="pe-2">
               <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512">
                 <path d="M73
@@ -146,7 +152,7 @@ confirm_logged_in();
               </svg>
             </i>Play</button>
 
-          <button class="btn btn-primary btn-lg btn-play-pause btn-pause" onclick="pauseVid()" type="button">
+          <button id="pause" class="btn btn-primary btn-lg btn-play-pause btn-pause" type="button">
             <i class="pe-2">
               <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512">
                 <path d="M48 64C21.5 64 0 85.5 0
@@ -158,7 +164,7 @@ confirm_logged_in();
             </i>
             Pause</button>
 
-          <button class="btn btn-primary btn-lg btn-play-pause btn-pause" onclick="muteVid()" type="button">
+          <button id="mute" class="btn btn-primary btn-lg btn-play-pause btn-pause" type="button">
             <i class="pe-2">
               <svg xmlns="http://www.w3.org/2000/svg" height="20" width="30" viewBox="0 0 512 512">
                 <path
@@ -171,104 +177,163 @@ confirm_logged_in();
     </div>
 
   </section>
+  <script src="https://cdn.plyr.io/3.7.3/plyr.js"></script>
+
 </body>
 <script>
-var azteca = document.getElementById("azteca");
-var televisa = document.getElementById("televisa");
-var multimedios = document.getElementById("multimedios");
-var seekbar = document.getElementById('seekbar');
+document.addEventListener('DOMContentLoaded', () => {
 
-function playVid() {
-  azteca.play();
-  televisa.play();
-  multimedios.play();
-}
+  const controls = [
+    'play-large', // The large play button in the center
+    'play', // Play/pause playback
+    'progress', // The progress bar and scrubber for playback and buffering
+    'current-time', // The current time of playback
+    'duration', // The full duration of the media
+    'airplay', // Airplay (currently Safari only)
+    'fullscreen' // Toggle fullscreen
+  ];
 
-function pauseVid() {
-  azteca.pause();
-  televisa.pause();
-  multimedios.pause();
-}
+  var players_multiple = Plyr.setup('.js-player', {
+    controls
+  });
 
-function getSpeed() {
-  const velocidad = document.getElementById("velocidad").value;
-  azteca.playbackRate = velocidad;
-  televisa.playbackRate = velocidad;
-  multimedios.playbackRate = velocidad;
-}
+  // Expose
+  window.player = players_multiple;
 
-function muteVid() {
-  if (azteca.muted === false) {    
-    azteca.muted = true;
-    televisa.muted = true;
-    multimedios.muted = true;
-  } else {
-    azteca.muted = false;
-    televisa.muted = false;
-    multimedios.muted = false;
-  };  
-}
+  // Bind event listener
+  function on(selector, type, callback) {
+    document.querySelector(selector).addEventListener(type, callback, false);
+  }
 
-window.onload = function () {
-  azteca.addEventListener('timeupdate', UpdateTheTime, false);
-  televisa.addEventListener('timeupdate', UpdateTheTime, false);
-  multimedios.addEventListener('timeupdate', UpdateTheTime, false);
-  azteca.addEventListener('durationchange', SetSeekBar, false);
-  televisa.addEventListener('durationchange', SetSeekBar, false);
-  multimedios.addEventListener('durationchange', SetSeekBar, false);
-}
+  // Play
+  on('#play', 'click', () => {
+    var i = 0;
+    while (i <= 2) {
+      players_multiple[i].play();
+      i++;
+    }
+  });
 
-function SetSeekBar() {
-  seekbar.min = 0;
-  seekbar.max = azteca.duration;
-  seekbar.value = 0;
-}
+  // Pause
+  on('#pause', 'click', () => {
+    var i = 0;
+    while (i <= 2) {
+      players_multiple[i].pause();
+      i++;
+    }
+  });
 
-function ChangeTheTime() {
-  azteca.currentTime = seekbar.value;
-  televisa.currentTime = seekbar.value;
-  multimedios.currentTime = seekbar.value;
-}
+  on('#velocidad', 'change', () => {
+    var velocidad = document.getElementById("velocidad").value;
+    players_multiple[0].speed = Number(velocidad);
+    players_multiple[1].speed = Number(velocidad);
+    players_multiple[2].speed = Number(velocidad);
+  });
 
-function UpdateTheTime() {
-  var sec = azteca.currentTime;
-  var h = Math.floor(sec / 3600);
-  sec = sec % 3600;
-  var min = Math.floor(sec / 60);
-  sec = Math.floor(sec % 60);
-  if (sec.toString().length < 2) sec = "0" + sec;
-  if (min.toString().length < 2) min = "0" + min;
-  document.getElementById("lblTime").style.color = "white";
-  document.getElementById('lblTime').innerHTML = h + ":" + min + ":" + sec;
-  seekbar.min = azteca.startTime;
-  seekbar.max = azteca.duration;
-  // seekbar.value = azteca.currentTime;
-}
+  // Stop
+  on('#mute', 'click', () => {
+    var i = 0;
+    while (i <= 2) {
+      if (players_multiple[i].volume == 1) {
+        players_multiple[i].volume = 0;
+      } else {
+        players_multiple[i].volume = 1;
+      }
+      i++;
+    }
+  });
 
-function getVideo() {
-  // get date from fp
-  const año = document.getElementById("año").value;
-  const mes = document.getElementById("mes").value;
-  const dia = document.getElementById("dia").value;
-  const hora = document.getElementById("hora").value + '0000';
+  // Month  
+  on('#month', 'change', () => {
+    var month = document.getElementById("month").value;
+    var day = document.getElementById("day").value;
+    var hour = document.getElementById("hour").value;
+  });
 
-  var televisa = document.getElementById('televisa');
-  var azteca = document.getElementById('azteca');
-  var multimedios = document.getElementById('multimedios');
+  // Day  
+  on('#day', 'change', () => {
+    var month = document.getElementById("month").value;
+    var day = document.getElementById("day").value;
+    var hour = document.getElementById("hour").value;
+  });
 
-  // set videos
-  televisa.setAttribute('src', 'media/televisa/' + año + '/' + mes + '/' + dia + '/' + hora + '.mp4');
-  // televisa.setAttribute('src', 'video.mp4');
-  televisa.setAttribute('type', 'video/mp4');
+  // Hour  
+  on('#hour', 'change', () => {
+    var year = document.getElementById("year").value;
+    var month = document.getElementById("month").value;
+    var day = document.getElementById("day").value;
+    var hour = document.getElementById("hour").value;
+    var hour = hour + '0000.mp4';
+    var hourSpriteF = hour + '0000';
+    var hourSprite = hour + '0000.vtt';
 
-  azteca.setAttribute('src', 'media/tva/' + año + '/' + mes + '/' + dia + '/' + hora + '.mp4');
-  // azteca.setAttribute('src', 'video.mp4');
-  azteca.setAttribute('type', 'video/mp4');
+    document.getElementById("lblTime").style.color = "white";
+    document.getElementById('lblTime').innerHTML = '00:00:00';
 
-  multimedios.setAttribute('src', 'media/mm/' + año + '/' + mes + '/' + dia + '/' + hora + '.mp4');
-  // multimedios.setAttribute('src', 'video.mp4');
-  multimedios.setAttribute('type', 'video/mp4');
-}
+    players_multiple[0].source = {
+      type: 'video',
+      sources: [{
+        // src: hour,
+        src: 'media/televisa/' + year + '/' + month + '/' + day + '/' + hour,
+        type: 'video/mp4',
+      }, ],
+      previewThumbnails: {
+        enabled: true,
+        src: 'thumbs/televisa/' + year + '/' + month + '/' + day + '/' + hourSpriteF + '/' + hourSprite,
+        // src: 'sprite.vtt',
+      },
+    };
+
+    players_multiple[1].source = {
+      type: 'video',
+      sources: [{
+        src: 'media/tva/' + year + '/' + month + '/' + day + '/' + hour,
+        // src: hour,
+        type: 'video/mp4',
+      }, ],
+      previewThumbnails: {
+        enabled: true,
+        src: 'thumbs/tva/' + year + '/' + month + '/' + day + '/' + hourSpriteF + '/' + hourSprite,
+        // src: 'sprite.vtt',
+      },
+    };
+
+    players_multiple[2].source = {
+      type: 'video',
+      sources: [{
+        src: 'media/mm/' + year + '/' + month + '/' + day + '/' + hour,
+        // src: hour,
+        type: 'video/mp4',
+      }, ],
+      previewThumbnails: {
+        enabled: true,
+        src: 'thumbs/mm/' + year + '/' + month + '/' + day + '/' + hourSpriteF + '/' + hourSprite,
+        // src: 'sprite.vtt',
+      },
+    };
+  });
+
+  // Day  
+  on('#seekbar', 'input', () => {
+    seekbar.max = 3600;
+    var seekbar_value = seekbar.value.split('.')[0]
+    players_multiple[0].currentTime = Number(seekbar_value);
+    players_multiple[1].currentTime = Number(seekbar_value);
+    players_multiple[2].currentTime = Number(seekbar_value);
+
+    function secondsToTime(e) {
+      const h = Math.floor(e / 3600).toString().padStart(2, '0'),
+        m = Math.floor(e % 3600 / 60).toString().padStart(2, '0'),
+        s = Math.floor(e % 60).toString().padStart(2, '0');
+
+      return h + ':' + m + ':' + s;
+    }
+
+    document.getElementById("lblTime").style.color = "white";
+    document.getElementById('lblTime').innerHTML = secondsToTime(players_multiple[0].currentTime);
+
+  });
+});
 </script>
 
 </html>
