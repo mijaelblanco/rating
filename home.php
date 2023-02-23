@@ -313,8 +313,9 @@ document.addEventListener('DOMContentLoaded', () => {
     var day = document.getElementById("day").value;
     var hour = document.getElementById("hour").value;
     var hour = hour + '0000.mp4';
-    var hourSpriteF = hour + '0000';
-    var hourSprite = hour + '0000.vtt';
+    var hourF = hour + '0000';
+    var hourSpriteF = hourF + '0000';
+    var hourSprite = hourF + '0000.vtt';
 
     document.getElementById("lblTime").style.color = "white";
     document.getElementById('lblTime').innerHTML = '00:00:00';
@@ -328,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, ],
       previewThumbnails: {
         enabled: true,
-        src: 'thumbs/televisa/' + year + '/' + month + '/' + day + '/' + hourSpriteF + '/' + hourSprite,
+        src: 'thumbs/televisa/' + month + '/' + day + '/' + hourSpriteF + '/' + hourSprite,
         // src: 'sprite.vtt',
       },
     };
@@ -342,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, ],
       previewThumbnails: {
         enabled: true,
-        src: 'thumbs/tva/' + year + '/' + month + '/' + day + '/' + hourSpriteF + '/' + hourSprite,
+        src: 'thumbs/tva/' + month + '/' + day + '/' + hourSpriteF + '/' + hourSprite,
         // src: 'sprite.vtt',
       },
     };
@@ -356,7 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, ],
       previewThumbnails: {
         enabled: true,
-        src: 'thumbs/mm/' + year + '/' + month + '/' + day + '/' + hourSpriteF + '/' + hourSprite,
+        src: 'thumbs/mm/' + month + '/' + day + '/' + hourSpriteF + '/' + hourSprite,
         // src: 'sprite.vtt',
       },
     };
