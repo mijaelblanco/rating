@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'video',
       sources: [{
         // src: hour,
-        src: 'media/televisa/' + year + '/' + month + '/' + day + '/' + hour,
+        src: 'https://azteca-visor.nyc3.cdn.digitaloceanspaces.com/televisa/'+year+month+day+hour,
         type: 'video/mp4',
       }, ],
       previewThumbnails: {
@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[1].source = {
       type: 'video',
       sources: [{
-        src: 'https://azteca-visor.nyc3.cdn.digitaloceanspaces.com/tva/20230222050000.mp4',
+        src: 'https://azteca-visor.nyc3.cdn.digitaloceanspaces.com/tva/'+year+month+day+hour,
         // src: hour,
         type: 'video/mp4',
       }, ],
@@ -350,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[2].source = {
       type: 'video',
       sources: [{
-        src: 'media/mm/' + year + '/' + month + '/' + day + '/' + hour,
+        src: 'https://azteca-visor.nyc3.cdn.digitaloceanspaces.com/mm/'+year+month+day+hour,
         // src: hour,
         type: 'video/mp4',
       }, ],
