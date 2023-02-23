@@ -312,9 +312,11 @@ document.addEventListener('DOMContentLoaded', () => {
     var month = document.getElementById("month").value;
     var day = document.getElementById("day").value;
     var hour = document.getElementById("hour").value;
-    var hour = hour + '0000.mp4';
+    var hourV = hour + '0000.mp4';
     var hourF = hour + '0000';
     var hourSprite = hourF + '.vtt';
+
+    console.log(hourSprite)
 
     document.getElementById("lblTime").style.color = "white";
     document.getElementById('lblTime').innerHTML = '00:00:00';
@@ -323,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'video',
       sources: [{
         // src: hour,
-        src: 'https://azteca-visor.nyc3.cdn.digitaloceanspaces.com/televisa/'+year+month+day+hour,
+        src: 'https://azteca-visor.nyc3.cdn.digitaloceanspaces.com/televisa/'+year+month+day+hourV,
         type: 'video/mp4',
       }, ],
       previewThumbnails: {
@@ -336,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[1].source = {
       type: 'video',
       sources: [{
-        src: 'https://azteca-visor.nyc3.cdn.digitaloceanspaces.com/tva/'+year+month+day+hour,
+        src: 'https://azteca-visor.nyc3.cdn.digitaloceanspaces.com/tva/'+year+month+day+hourV,
         // src: hour,
         type: 'video/mp4',
       }, ],
@@ -350,7 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[2].source = {
       type: 'video',
       sources: [{
-        src: 'https://azteca-visor.nyc3.cdn.digitaloceanspaces.com/mm/'+year+month+day+hour,
+        src: 'https://azteca-visor.nyc3.cdn.digitaloceanspaces.com/mm/'+year+month+day+hourV,
         // src: hour,
         type: 'video/mp4',
       }, ],
