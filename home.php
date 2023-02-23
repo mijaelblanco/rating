@@ -340,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[1].source = {
       type: 'video',
       sources: [{
-        src: 'media/tva/' + año + '/' + month + '/' + day + '/' + hourF + '.mp4',
+        src: 'media/tva/' + year + '/' + month + '/' + day + '/' + hourF + '.mp4',
         // src: hour,
         type: 'video/mp4',
       }, ],
@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[2].source = {
       type: 'video',
       sources: [{
-        src: 'media/mm/' + month + '/' + mes + '/' + day + '/' + hourF + '.mp4',
+        src: 'media/mm/' + year + '/' + month + '/' + day + '/' + hourF + '.mp4',
         // src: hour,
         type: 'video/mp4',
       }, ],
