@@ -266,8 +266,8 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[0].source = {
       type: 'video',
       sources: [{
-        src: hour,
-        // src: 'media/televisa/' + year + '/' + month + '/' + day + '/' + hour,
+        // src: hour,
+        src: 'media/televisa/' + year + '/' + month + '/' + day + '/' + hour,
         type: 'video/mp4',
       }, ],
       previewThumbnails: {
@@ -280,8 +280,8 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[1].source = {
       type: 'video',
       sources: [{
-        // src: 'media/tva/' + year + '/' + month + '/' + day + '/' + hour,
-        src: hour,
+        src: 'media/tva/' + year + '/' + month + '/' + day + '/' + hour,
+        // src: hour,
         type: 'video/mp4',
       }, ],
       previewThumbnails: {
@@ -294,8 +294,8 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[2].source = {
       type: 'video',
       sources: [{
-        // src: 'media/mm/' + year + '/' + month + '/' + day + '/' + hour,
-        src: hour,
+        src: 'media/mm/' + year + '/' + month + '/' + day + '/' + hour,
+        // src: hour,
         type: 'video/mp4',
       }, ],
       previewThumbnails: {
@@ -322,8 +322,8 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[0].source = {
       type: 'video',
       sources: [{
-        src: hour,
-        // src: 'media/televisa/' + year + '/' + month + '/' + day + '/' + hour,
+        // src: hour,
+        src: 'media/televisa/' + year + '/' + month + '/' + day + '/' + hour,
         type: 'video/mp4',
       }, ],
       previewThumbnails: {
@@ -336,8 +336,8 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[1].source = {
       type: 'video',
       sources: [{
-        // src: 'media/tva/' + year + '/' + month + '/' + day + '/' + hour,
-        src: hour,
+        src: 'media/tva/' + year + '/' + month + '/' + day + '/' + hour,
+        // src: hour,
         type: 'video/mp4',
       }, ],
       previewThumbnails: {
@@ -350,8 +350,8 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[2].source = {
       type: 'video',
       sources: [{
-        // src: 'media/mm/' + year + '/' + month + '/' + day + '/' + hour,
-        src: hour,
+        src: 'media/mm/' + year + '/' + month + '/' + day + '/' + hour,
+        // src: hour,
         type: 'video/mp4',
       }, ],
       previewThumbnails: {
