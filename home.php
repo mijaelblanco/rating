@@ -92,7 +92,7 @@ confirm_logged_in();
     </div>
   </section>
   <div class="col-md-12 text-center pt-4">
-    <input type="range" class="form-range" step="any" value="0" id="seekbar" style="width:700px; text-align: center;">
+    <input type="range" class="form-range" step="any" id="seekbar" style="width:700px; text-align: center;">
     <br>
     <span id="lblTime"></span>
   </div>
@@ -262,6 +262,8 @@ document.addEventListener('DOMContentLoaded', () => {
     var hourSpriteF = hour + '0000';
     var hourSprite = hour + '0000.vtt';
 
+    seekbar.value = 0;
+
     document.getElementById("lblTime").style.color = "white";
     document.getElementById('lblTime').innerHTML = '00:00:00';
 
@@ -321,11 +323,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("lblTime").style.color = "white";
     document.getElementById('lblTime').innerHTML = '00:00:00';
 
+    seekbar.value = 0;
+
     players_multiple[0].source = {
       type: 'video',
       sources: [{
         // src: hour,
-        src: 'media/televisa/' + year + '/' + month + '/' + day + '/' + hourF + '.mp4',
+        // src: 'media/televisa/' + year + '/' + month + '/' + day + '/' + hourF + '.mp4',
+        src: '050000.mp4',
         type: 'video/mp4',
       }, ],
       previewThumbnails: {
@@ -338,7 +343,8 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[1].source = {
       type: 'video',
       sources: [{
-        src: 'media/tva/' + year + '/' + month + '/' + day + '/' + hourF + '.mp4',
+        // src: 'media/tva/' + year + '/' + month + '/' + day + '/' + hourF + '.mp4',
+        src: '050000.mp4',
         // src: hour,
         type: 'video/mp4',
       }, ],
@@ -352,8 +358,9 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[2].source = {
       type: 'video',
       sources: [{
-        src: 'media/mm/' + year + '/' + month + '/' + day + '/' + hourF + '.mp4',
+        // src: 'media/mm/' + year + '/' + month + '/' + day + '/' + hourF + '.mp4',
         // src: hour,
+        src: '050000.mp4',
         type: 'video/mp4',
       }, ],
       previewThumbnails: {
@@ -366,7 +373,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Day  
   on('#seekbar', 'input', () => {
-    seekbar.value = 0;
     seekbar.max = 3600;
     var seekbar_value = seekbar.value.split('.')[0]
     players_multiple[0].currentTime = Number(seekbar_value);
