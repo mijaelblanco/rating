@@ -98,7 +98,7 @@ confirm_logged_in();
   </div>
   <!-- BOTONES -->
   <section>
-    <div class="container pt-5 d-flex">
+    <div class="container pt-2 d-flex">
       <div class="row">
         <div class="col-md-12">
           <div class="input-group text-center">
@@ -106,24 +106,12 @@ confirm_logged_in();
               <option value="2023">2023</option>
             </select>
             <select id="month" id="mes" name="mes">
-              <option selected value="02">Febrero</option>
+              <option selected value="mes">MES</option>
+              <option value="02">Febrero</option>
+              <option value="03">Marzo</option>
             </select>
             <select id="day" name="dia">
-              <option value="02">02</option>
-              <option value="03">03</option>
-              <option value="06">06</option>
-              <option value="07">07</option>
-              <option value="08">08</option>
-              <option value="09">09</option>
-              <option value="10">10</option>
-              <option value="13">13</option>
-              <option value="14">14</option>
-              <option value="15">15</option>
-              <option value="16">16</option>
-              <option value="17">17</option>
-              <option value="20">20</option>
-              <option value="21">21</option>
-              <option selected value="22">22</option>
+              <option selected value="dia">DÍA</option>
             </select>
             <select id="hour" name="hora">
               <option selected value="horario">HORARIO</option>
@@ -247,9 +235,92 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Month  
   on('#month', 'change', () => {
+    var year = document.getElementById("year").value;
     var month = document.getElementById("month").value;
     var day = document.getElementById("day").value;
     var hour = document.getElementById("hour").value;
+    var hour = hour + '0000.mp4';
+    var hourSpriteF = hour + '0000';
+    var hourSprite = hour + '0000.vtt';
+
+
+    if (month == '02') {
+      var arrOptions = [];
+      arrOptions.push("<option value='02'>02</option>");
+      arrOptions.push("<option value='03'>03</option>");
+      arrOptions.push("<option value='06'>06</option>");
+      arrOptions.push("<option value='07'>07</option>");
+      arrOptions.push("<option value='08'>08</option>");
+      arrOptions.push("<option value='09'>09</option>");
+      arrOptions.push("<option value='10'>10</option>");
+      arrOptions.push("<option value='13'>13</option>");
+      arrOptions.push("<option value='14'>14</option>");
+      arrOptions.push("<option value='15'>15</option>");
+      arrOptions.push("<option value='16'>16</option>");
+      arrOptions.push("<option value='17'>17</option>");
+      arrOptions.push("<option value='20'>20</option>");
+      arrOptions.push("<option value='21'>21</option>");
+      arrOptions.push("<option value='22'>22</option>");
+      arrOptions.push("<option value='23'>23</option>");
+      arrOptions.push("<option value='24'>24</option>");
+      arrOptions.push("<option value='27'>27</option>");
+      arrOptions.push("<option value='28'>28</option>");
+
+      document.getElementById("day").innerHTML = arrOptions.join();
+
+    } else if (month == '03') {
+      var arrOptions = [];
+      arrOptions.push("<option value='01'>01</option>");
+
+      document.getElementById("day").innerHTML = arrOptions.join();
+    }
+
+    seekbar.value = 0;
+
+    document.getElementById("lblTime").style.color = "white";
+    document.getElementById('lblTime').innerHTML = '00:00:00';
+
+    players_multiple[0].source = {
+      type: 'video',
+      sources: [{
+        // src: hour,
+        src: 'media/televisa/' + year + '/' + month + '/' + day + '/' + hour,
+        type: 'video/mp4',
+      }, ],
+      previewThumbnails: {
+        enabled: true,
+        src: 'thumbs/televisa/' + year + '/' + month + '/' + day + '/' + hourSpriteF + '/' + hourSprite,
+        // src: 'sprite.vtt',
+      },
+    };
+
+    players_multiple[1].source = {
+      type: 'video',
+      sources: [{
+        src: 'media/tva/' + year + '/' + month + '/' + day + '/' + hour,
+        // src: '050000.mp4',
+        type: 'video/mp4',
+      }, ],
+      previewThumbnails: {
+        enabled: true,
+        src: 'thumbs/tva/' + year + '/' + month + '/' + day + '/' + hourSpriteF + '/' + hourSprite,
+        // src: 'sprite.vtt',
+      },
+    };
+
+    players_multiple[2].source = {
+      type: 'video',
+      sources: [{
+        src: 'media/mm/' + year + '/' + month + '/' + day + '/' + hour,
+        // src: hour,
+        type: 'video/mp4',
+      }, ],
+      previewThumbnails: {
+        enabled: true,
+        src: 'thumbs/mm/' + year + '/' + month + '/' + day + '/' + hourSpriteF + '/' + hourSprite,
+        // src: 'sprite.vtt',
+      },
+    };
   });
 
   // Day  
@@ -284,8 +355,8 @@ document.addEventListener('DOMContentLoaded', () => {
     players_multiple[1].source = {
       type: 'video',
       sources: [{
-        src: 'media/tva/' + year + '/' + month + '/' + day + '/' + hour,
-        // src: hour,
+        // src: 'media/tva/' + year + '/' + month + '/' + day + '/' + hour,
+        src: '050000.mp4',
         type: 'video/mp4',
       }, ],
       previewThumbnails: {
