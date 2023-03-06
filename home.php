@@ -120,6 +120,8 @@ confirm_logged_in();
               <option value="07">07:00AM</option>
               <option value="08">08:00AM</option>
               <option value="09">09:00AM</option>
+              <option value="10">10:00AM</option>
+              <option value="11">11:00AM</option>
             </select>
             <select id="velocidad" name="velocidad">
               <option value="1">1X</option>
@@ -271,6 +273,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (month == '03') {
       var arrOptions = [];
       arrOptions.push("<option value='01'>01</option>");
+      arrOptions.push("<option value='02'>02</option>");
+      arrOptions.push("<option value='03'>03</option>");
 
       document.getElementById("day").innerHTML = arrOptions.join();
     }
@@ -464,5 +468,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
-
 </html>
