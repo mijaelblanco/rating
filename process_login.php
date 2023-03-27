@@ -18,7 +18,13 @@ if($_SERVER['REQUEST_METHOD']==='POST' && is_array($_POST) && !empty($email) && 
     //check user is valid or not
     $status = validate_user($email,$password);
 	if($status){
-		header( "Location: home.php" ); die;		
+        $data = array(
+            'username' => $email,
+            'final_date' =>  date("Y-m-d h:i:s")
+            );
+        //insert login attempts into table
+        insert('logs', $data);	
+		header( "Location: home.php" ); die;	
 	}else{
         if($user_id){
             $data = array(

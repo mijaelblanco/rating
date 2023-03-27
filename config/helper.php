@@ -90,7 +90,7 @@ function insert($table,$data) {
  * |-------------------------------------------------------
  */
 function get_user_id($email){
-	$data = fetch_single('user','id','email',$email);
+	$data = fetch_single('first_name','id','email',$email);
 	if($data){
 		return $data;
 	}else{

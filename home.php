@@ -54,9 +54,11 @@ confirm_logged_in();
   <section>
     <div class="container-fluid py-4">
       <div class="row">
-        <div class="col-md-12 text-center pt-4">
-          <!-- <p class="h2 text-uppercase text-white">Rating</p> -->
+        <div class="text-center">
+          <a href="analytics.php" class="h4 text-uppercase text-white">analytics</a> 
         </div>
+        <br>
+        <br>
         <hr>
         <div class="col-md-4">
           <div class="mx-auto py-3" style="max-width: 180px; height:100px;">
@@ -275,6 +277,21 @@ document.addEventListener('DOMContentLoaded', () => {
       arrOptions.push("<option value='01'>01</option>");
       arrOptions.push("<option value='02'>02</option>");
       arrOptions.push("<option value='03'>03</option>");
+      arrOptions.push("<option value='06'>06</option>");
+      arrOptions.push("<option value='07'>07</option>");
+      arrOptions.push("<option value='08'>08</option>");
+      arrOptions.push("<option value='09'>09</option>");
+      arrOptions.push("<option value='10'>10</option>");
+      arrOptions.push("<option value='13'>13</option>");
+      arrOptions.push("<option value='14'>14</option>");
+      arrOptions.push("<option value='15'>15</option>");
+      arrOptions.push("<option value='16'>16</option>");
+      arrOptions.push("<option value='17'>17</option>");
+      arrOptions.push("<option value='20'>20</option>");
+      arrOptions.push("<option value='21'>21</option>");
+      arrOptions.push("<option value='22'>22</option>");
+      arrOptions.push("<option value='23'>23</option>");
+      arrOptions.push("<option selected value='24'>24</option>");
 
       document.getElementById("day").innerHTML = arrOptions.join();
     }
@@ -339,8 +356,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     seekbar.value = 0;
 
+    document.getElementById('hour').selectedIndex = 0;
+
     document.getElementById("lblTime").style.color = "white";
     document.getElementById('lblTime').innerHTML = '00:00:00';
+
+    if(hour == '05') {
 
     players_multiple[0].source = {
       type: 'video',
@@ -383,6 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // src: 'sprite.vtt',
       },
     };
+    }
   });
 
   // Hour  
